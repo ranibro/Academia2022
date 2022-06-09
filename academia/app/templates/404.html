@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Template Página do Usuário</title>
+    <title>Template Página do Funcionário</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,11 +41,25 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Visualizar Treinos</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Gerenciar</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Registrar:</h6>
+                        <a class="collapse-item" href="login.html">Máquinas</a>
+                        <a class="collapse-item" href="register.html">Treinos</a>
+                        <a class="collapse-item" href="forgot-password.html">Pessoas</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Dados</h6>
+                        <a class="collapse-item" href="404.html">Alterar dados de Máquina</a>
+                        <a class="collapse-item" href="blank.html">Alterar dados de Treinos</a>
+                        <a class="collapse-item" href="blank.html">Alterar dados de Pessoas</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -237,7 +251,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Funcionário</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -273,177 +287,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                        <div class="card-body">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Treino de Peitoral</h6>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Seq</th>
-                                            <th>Exercícios</th>
-                                            <th>Série</th>
-                                            <th>Repetição</th>
-                                            <th>Peso</th>
-                                        </tr>
-                                    </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot> -->
-                                    <tbody>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Supino reto</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Supino Inclinado</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Supino Declinado</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Peitoral Voador</td>
-                                            <td>3</td>
-                                            <td>15</td>
-                                            <td>25</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Cruxifixo</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>9</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Pullover</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Crossover</td>
-                                            <td>3</td>
-                                            <td>12</td>
-                                            <td>20</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <a href="#" class="btn btn-secondary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="text">Imprimir Treino</span>
-                            </a>
-                        </div>
+                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
-                        <div class="card-body">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Treino de Dorsal</h6>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Seq</th>
-                                            <th>Exercícios</th>
-                                            <th>Série</th>
-                                            <th>Repetição</th>
-                                            <th>Peso</th>
-                                        </tr>
-                                    </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot> -->
-                                    <tbody>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Puxada Frontal</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Remada Baixa</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Dorsal Voador</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Remada Curvada</td>
-                                            <td>3</td>
-                                            <td>15</td>
-                                            <td>25</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Remada Unilateral</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>9</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Elevação de Escápula</td>
-                                            <td>4</td>
-                                            <td>10</td>
-                                            <td>15</td>
-                                        </tr>
-                                        <tr>
-                                            <td> </td>
-                                            <td>Gravitron</td>
-                                            <td>3</td>
-                                            <td>12</td>
-                                            <td>20</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <a href="#" class="btn btn-secondary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="text">Imprimir Treino</span>
-                            </a>
-                        </div>
                 </div>
                 <!-- /.container-fluid -->
 
