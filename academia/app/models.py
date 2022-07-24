@@ -1,5 +1,3 @@
-from logging import PlaceHolder
-from this import d
 from django.db import models
 
 # Create your models here.
@@ -9,3 +7,4 @@ class Clientes (models.Model):
     
     def __str__(self):
         return self.nome
+    
