@@ -1,15 +1,19 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
-from app.models import Clientes
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView,  UpdateView
+from .models import Clientes
+from django.views.generic.list import ListView
 
-#definir função para refernciar os templates em urls.
-#return render(request, 'nomeDoTemplate')
 
 class ClientesCad(CreateView):
     model = Clientes
-    fields = ['nome', 'email']
+    fields = ['nome', 'email','password','idade', 'altura','peso']
     template_name = 'cadastros/cadastroCliente.html'
+    success_url = reverse_lazy('app:lista')
 
+class ClientesLista(ListView):
+    model = Clientes
+    template_name = "listas/listaClientes.html" 
 
 def index(request):
     return render(request, 'index.html')
