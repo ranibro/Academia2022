@@ -5,9 +5,11 @@ from django.db import models
 class Clientes (models.Model):
     nome = models.CharField('Digite seu nome', max_length=200)
     email = models.EmailField('Digite seu email', max_length=200)
-    password = models.CharField('Digite a senha', max_length=200 )
+#Para Senha tem que ser PassworlField
+    password = models.CharField('Digite a senha', max_length=200)
     idade = models.IntegerField('Digite sua idade')
-    altura =  models.IntegerField('Digite sua altura')
+#Altura é valor fracionado, não inteiro.
+    altura =  models.DecimalField(max_digits=3, decimal_places=2, verbose_name='Digite sua altura')
     peso = models.IntegerField('Digite seu peso')
 
     def __str__(self):
