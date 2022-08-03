@@ -13,7 +13,7 @@ class ClientesCad(CreateView):
     fields = ['nome', 'email','password','idade', 'altura','peso']
     template_name = 'cadastros/cadastroCliente.html'
 #Tirar esse redirect aqui, no lugar disso usar uma caixa de texto de alerta
-    success_url = reverse_lazy('alunos:lista')
+    success_url = reverse_lazy('alunos:clientes')
 
 class ClientesLista(ListView):
     model = Clientes
