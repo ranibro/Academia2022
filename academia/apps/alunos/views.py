@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView,  UpdateView
-from .models import Clientes #, Equipamentos, Funcionarios
+from .models import Clientes
 from django.views.generic.list import ListView
 
 #Implementar model para cadastro de equip e funcionários, depois disso
@@ -18,20 +18,6 @@ class ClientesCad(CreateView):
 class ClientesLista(ListView):
     model = Clientes
     template_name = "listas/listaClientes.html"
-
-
-#Não implementados
-#Criar view pra funcionário e equipamento.
-'''
-class EquipamentosLista(ListView):
-    model = Equipamentos
-    template_name = "listas/listaEquipamentos.html" 
-    
-class FuncionariosLista(ListView):
-    model = Funcionarios
-    template_name = "listas/listaFuncionarios.html" 
-    
-'''
 
 def index(request):
     return render(request, 'index.html')
