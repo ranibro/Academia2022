@@ -9,6 +9,11 @@ from django.views.generic.list import ListView
 # Não implementados
 # Criar view pra equipamento.
 
+class EquipamentoCad(CreateView):
+    model = Equipamentos
+    fields = ['nome', 'descr']
+    template_name = 'cadastros/cadastroEquipamentos.html'
+
 class EquipamentosLista(ListView):
     model = Equipamentos
     template_name = "listas/listaEquipamentos.html" 

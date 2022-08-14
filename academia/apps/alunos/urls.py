@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, base, cadastro, ClientesCad, ClientesLista #,EquipamentosLista, FuncionariosLista
+from .views import index, base, cadastro, ClientesCad, ClientesLista
 
 app_name = 'alunos'
 
