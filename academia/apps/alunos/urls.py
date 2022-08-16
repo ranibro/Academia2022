@@ -11,5 +11,5 @@ urlpatterns = [
 #Se mecher aqui, tem que mecher no base.html também.
     path('cadastro-cliente/', ClientesCad.as_view(), name='CadastroCliente'),
     path('clientes/', ClienteListagem.as_view(), name='clientes'),
-    path('listas/<int:pk>', ClientesUpdate.as_view() , name='listas'),    
+    path('update/<int:pk>', ClientesUpdate.as_view() , name='update'),    
 ]

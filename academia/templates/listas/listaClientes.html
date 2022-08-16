@@ -35,10 +35,11 @@
                         <td class="text-center align-middle" style="width:150px;">
                             <div class="d-flex justify-content-center">
                                 <div class="mx-1">
-                                    <button class="btn btn-info" data-toggle="modal" data-target="#excluiAluno"
-                                            style="padding-top: 0.7rem; padding-bottom: 0.7rem; ">
-                                        <i class="fas fa-pen"></i>
-                                    </button>
+                                    <a href="{% url 'alunos:update' item.pk %}"
+                                    class="btn btn-secondary"
+                                    style=" padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+                                     <i class="fas fa-pen"></i>
+                                 </a>
                                 </div>
                                
                                 <div class="mx-1">                                     
