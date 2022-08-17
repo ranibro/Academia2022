@@ -63,4 +63,4 @@ class ClientesUpdate(UpdateView):
     model = Clientes
     fields = "__all__" 
     template_name = 'cadastros/cadastroCliente.html'
-    success_url = reverse_lazy('listas:listaClientes.html')
+    success_url = reverse_lazy('alunos:clientes')
