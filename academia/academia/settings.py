@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'apps.alunos',
     'apps.funcionarios',
     'apps.equipamentos',
-    #melhorar o layout do forms
     'crispy_forms',
 ]
 

@@ -5,9 +5,7 @@ from .models import Clientes
 from django.views.generic.list import ListView
 from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
-#Implementar model para cadastro de equip e funcionários, depois disso
-#Implementar view para cadastro de equip e de funcionários, depois disso
-#Criar url para o template de lista do equip e funcionário, que não estão prontos ainda.
+
 
 class ClientesCad(CreateView):
     model = Clientes
