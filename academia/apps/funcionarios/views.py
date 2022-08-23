@@ -21,9 +21,11 @@ def paginalogin(request):
             if user is not None:
                 login(request, user)
                 #colocar backend?
-                return redirect('alunos:ClienteListagem')
+                return redirect('alunos:clientes')
             else:
                 messages.error(request, "Usuario ou senha invalidos!")
                 return render(request, '../templates/login/login.html')
         else:
             return render(request, '../templates/login/login.html')
+        
+        
