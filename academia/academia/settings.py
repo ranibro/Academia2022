@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.funcionarios',
     'apps.equipamentos',
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [

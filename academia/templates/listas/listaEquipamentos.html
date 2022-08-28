@@ -6,10 +6,10 @@
 {% block conteudo %}
     <div class="d-flex bd-highlight my-3">
         <div class=" align-middle bd-highlight">
-            <h3>Alunos</h3>
+            <h3>Equipamentos</h3>
         </div>
         <div class="ml-auto align-middle bd-highlight">
-            <a class="btn btn-primary"  href="">
+            <a class="btn btn-primary"  href="../cadastro-equipamento">
                 <i class="fas fa-plus"></i>
                 Novo Cadastro
             </a>
@@ -23,28 +23,73 @@
             <thead class="">
                 <tr class="text-dark" style="background:#ebebeb;">
                     <th class="text-center">Nome</th>
-                    <th class="text-center">Email</th>
+                    <th class="text-center">Status</th>
                     <th class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in object_list %}
                     <tr>
-                        <td scope="row " class="text-center align-middle">{{ item.nome }}</td>
-                        <td class="text-center align-middle">{{ item.email }}</td>
+                        <td scope="row " class="text-center align-middle">  
+                            <a href="#bannerformmodal" data-toggle="modal" data-target="myModal"></a>
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{ item.nome }}</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                              <div class="modal-dialog">
+                              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img src="{{ imagem from object_list }}">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            
+                          </div>                          
+                        </td>
+                        {% if item.status == "Funcionando" %}
+                            <td class="text-center align-middle bg-success">
+                                <span class="" style=" color: white;  ">
+                                    {{ item.status }}
+                                </span>
+                            </td>
+                        {% elif item.status == "Manutenção" %}
+                            <td class="text-center align-middle bg-gradient-warning">
+                                {{ item.status }}
+                            </td>
+                        {% else %}
+                            <td class="text-center align-middle bg-danger">
+                                
+                            <span class="" style="background-color: green; padding: 0px 20px 0px 20px; color: white;  width: 40px;">
+                                {{ item.status }}
+                            </span>
+                            </td>
+                            {% endif %}                        
+                         
                         <td class="text-center align-middle" style="width:150px;">
                             <div class="d-flex justify-content-center">
                                 <div class="mx-1">
-                                    <button class="btn btn-info" data-toggle="modal" data-target="#excluiAluno"
-                                            style="padding-top: 0.7rem; padding-bottom: 0.7rem; ">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+                                    <a href="{% url 'equipamentos:eq-update' item.pk %}"
+                                    class="btn btn-secondary"
+                                    style=" padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+                                     <i class="fas fa-pen"></i>
+                                 </a>
                                 </div>
                                
                                 <div class="mx-1">                                     
                                     <button class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#excluiAluno"
-                                            style="padding-top: 0.7rem; padding-bottom: 0.7rem; ">
-                                        <i class="fas fa-trash-alt"></i>
+                                            style="padding-top: 1.2rem; padding-bottom: 1.2rem; padding-left: 1.2rem; padding-right: 1.2rem ">
+                                        <i class="fas fa-info"></i>
                                     </button>
                                 </div>
                                 <div class="mx-1">                                     
