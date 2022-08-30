@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from telnetlib import LOGOUT
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,7 +42,9 @@ INSTALLED_APPS = [
     'apps.alunos',
     'apps.funcionarios',
     'apps.equipamentos',
+    'apps.usuarios',
     'crispy_forms',
+    'stdimage',
 
 ]
 
@@ -133,3 +136,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#admin 
+
+LOGIN_REDIRECT_URL = '../clientes' # URL redirecting after a successful authentication
+
+LOGOUT_REDIRECT_URL = 'login'

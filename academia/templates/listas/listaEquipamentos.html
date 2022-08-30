@@ -31,9 +31,11 @@
                 {% for item in object_list %}
                     <tr>
                         <td scope="row " class="text-center align-middle">  
+                           
+                            <img src="{{ item.imagem.url }}" alt ="{{ item.imagem.url }}">
                             <a href="#bannerformmodal" data-toggle="modal" data-target="myModal"></a>
                             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{ item.nome }}</button>
-
+                             
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" role="dialog">
                               <div class="modal-dialog">
@@ -45,7 +47,7 @@
                                     <h4 class="modal-title">Modal Header</h4>
                                   </div>
                                   <div class="modal-body">
-                                    <img src="{{ imagem from object_list }}">
+                                    <img src="">
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -102,7 +104,9 @@
                         </td>
                     </tr>
                 {% empty %}
-                    Nada foi registrado
+                   <tr>
+                     <td col="3"> Nada foi registrado </td>
+                   </tr>
                 {% endfor %}
             </tbody>
         </table>

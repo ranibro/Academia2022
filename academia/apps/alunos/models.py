@@ -10,7 +10,7 @@ class Clientes (models.Model):
     idade = models.IntegerField('Digite sua idade')
 #Altura é valor fracionado, não inteiro.
     altura =  models.DecimalField(max_digits=3, decimal_places=2, verbose_name='Digite sua altura')
-    peso = models.DecimalField(max_digits=3, decimal_places=2, verbose_name='Digite seu peso')
+    peso = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Digite seu peso')
 
     def __str__(self):
         return self.nome
