@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import EquipamentosLista, EquipamentoCad, EquipamentosUpdate
+from ...static.img.views import EquipamentosLista, EquipamentoCad, EquipamentosUpdate
 from django.conf import settings
 from django.conf.urls.static import static
 app_name = 'equipamentos'
