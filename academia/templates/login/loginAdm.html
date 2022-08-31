@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'login/login.html' %}
 {% load static %}
 
 {% block titulo %} LoginCliente {% endblock %} 
@@ -8,12 +8,8 @@
 {% block conteudo %}
 
 <html>
-    <head>
-        <title>LoginView</title>
-        
-    </head>
-
-    <body>
+<div class="col-lg-6 d-none d-lg-block" style="background-image: url(staticfiles/img/logo_gradiente_teste_1_600x800.png);
+                                                                           background-size: 100% 100%;" ></div>
 <form action= "" method="POST">
     {% csrf_token %}
     

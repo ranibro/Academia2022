@@ -1,13 +1,8 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView,  UpdateView
+from django.views.generic.edit import CreateView,  UpdateView, DeleteView
 from .models import Equipamentos
 from django.views.generic.list import ListView
-
-# Create your views here.
-
-# Não implementados
-# Criar view pra equipamento.
 
 class EquipamentoCad(CreateView):
     model = Equipamentos
@@ -15,7 +10,6 @@ class EquipamentoCad(CreateView):
     template_name = 'cadastros/cadastroEquipamentos.html'
     success_url = reverse_lazy('equipamentos:equipamentos')
 
-    
 
 class EquipamentosLista(ListView):
     model = Equipamentos
@@ -28,3 +22,11 @@ class EquipamentosUpdate(UpdateView):
 
     template_name = 'cadastros/cadastroEquipamentos.html'
     success_url = reverse_lazy('equipamentos:equipamentos')
+
+
+class EquipamentosDelete(DeleteView):
+    model = Equipamentos
+    template_name = 'listas/listaEquipamentos.html'
+    success_url = reverse_lazy('equipamentos:equipamentos')
+    
+
