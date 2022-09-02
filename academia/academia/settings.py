@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'crispy_forms',
     'stdimage',
+    
 
 ]
 
