@@ -9,6 +9,3 @@ class Funcionario (models.Model):
     #definir horari que funcionario vai trabalhar
     def __str__(self):
         return self.nome
-    
-   
-    

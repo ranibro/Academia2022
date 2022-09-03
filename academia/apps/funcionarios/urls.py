@@ -1,11 +1,12 @@
 from django.urls import path
-from .views import paginalogin, listaclientes
+from .views import paginalogin, ClientesCad, ClienteListagem, ClientesUpdate
 
 app_name = 'funcionarios'
 
 #path('LinkNoNavegador', ReferenciaNoViews)
 urlpatterns = [
     path('', paginalogin, name='login'),
-    path('clientes/', listaclientes, name='clientes'),
-#   path('cadastroDeFuncionario/', ClientesLista.as_view(), name='cadastroFunc'),
+    path('cadastro-cliente/', ClientesCad.as_view(), name='CadastroCliente'),
+    path('clientes/', ClienteListagem.as_view(), name='clientes'),
+    path('update/<int:pk>', ClientesUpdate.as_view(), name='update'),
 ]

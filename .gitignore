@@ -255,3 +255,14 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python
+academia/apps/alunos/migrations/*
+academia/apps/equipamentos/migrations/*
+academia/apps/funcionarios/migrations/*
+academia/apps/treinos/migrations/*
+academia/apps/usuarios/migrations/*
+
+academia/apps/equipamentos/__init__.py
+academia/apps/alunos/__init__.py
+academia/apps/funcionarios/__init__.py
+academia/apps/treinos/__init__.py
+academia/apps/usuarios/__init__.py

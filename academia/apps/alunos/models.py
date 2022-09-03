@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 #fazer um status de inativo ou ativo
@@ -12,4 +13,3 @@ class Clientes (models.Model):
     
     def __str__(self):
         return "{} - {} - {}".format(self.nome, self.email, self.usuario)
-    
