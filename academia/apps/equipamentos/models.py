@@ -13,7 +13,7 @@ class Equipamentos (models.Model):
     descr = models.CharField('Descrição', max_length=200)
     status = models.CharField(max_length=11,choices=STATUS_CHOICES, blank=False, null=False)
     imagem = models.ImageField(upload_to='static/img/', null=True, blank=True)
-
+#arrumar imagem
     
     def __str__(self):
         return "{} {} {}".format(self.nome, self.descr, self.status)

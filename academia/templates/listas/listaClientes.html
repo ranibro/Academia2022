@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in object_list %}
+                {% for item in object_list %}   
                     <tr>
                         <td scope="row " class="text-center align-middle">{{ item.nome }}</td>
                         <td class="text-center align-middle">{{ item.email }}</td>
@@ -58,7 +58,9 @@
                         </td>
                     </tr>
                 {% empty %}
-                    Nada foi registrado
+                <tr>
+                    <td col="3"> Nada foi registrado </td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
