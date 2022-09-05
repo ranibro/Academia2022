@@ -14,12 +14,11 @@ class Clientes (models.Model):
     def __str__(self):
         return "{} - {} - {}".format(self.nome, self.email, self.usuario)
 
-#Mover esse exercicio para outro APP depois
 class Exercicio (models.Model):
-    repetições = models.IntegerField()
-    carga = models.IntegerField()
-    serie = models.IntegerField()
-    tempo = models.IntegerField(null=True, help_text="Opcional")
+    repeticao = models.PositiveIntegerField(null=True, default="0")
+    carga = models.PositiveIntegerField(null=True, default="0")
+    serie = models.PositiveIntegerField(null=True, default="0")
+    tempo = models.PositiveIntegerField(null=True, help_text="Opcional", default="0")
     equipamento = models.ForeignKey(Equipamentos, on_delete=models.CASCADE)
     def __str__(self):
         return "{}".format(self.equipamento)
@@ -27,3 +26,4 @@ class Exercicio (models.Model):
 class Treino (models.Model):
     nome = models.CharField('Nome do Treino', max_length=16)
     exercicio = models.ManyToManyField(Exercicio)
+    aluno = models.ManyToManyField(Clientes)
