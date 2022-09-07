@@ -16,4 +16,4 @@ class Equipamentos (models.Model):
 #arrumar imagem
     
     def __str__(self):
-        return "{} {} {}".format(self.nome, self.descr, self.status)
+        return "{} - ({})".format(self.nome, self.descr)

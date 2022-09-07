@@ -19,7 +19,6 @@ class EquipamentosLista(ListView):
 class EquipamentosUpdate(UpdateView):
     model = Equipamentos
     fields = '__all__'
-
     template_name = 'cadastros/cadastroEquipamentos.html'
     success_url = reverse_lazy('equipamentos:equipamentos')
 

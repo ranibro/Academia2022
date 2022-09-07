@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+<title>
+    {% block titulo %}Lista de equipamentos - UFAC{% endblock %}
+</title>
+{% block conteudo %}
+    <div class="d-flex bd-highlight my-3">
+        <div class=" align-middle bd-highlight">
+            <h3>Equipamentos</h3>
+        </div>
+        <div class="ml-auto align-middle bd-highlight">
+            <a class="btn btn-primary"  href="../cadastro-equipamento">
+                <i class="fas fa-plus"></i>
+                Novo Cadastro
+            </a>
+        </div>
+    </div>
+    <div class="bg-white p-4 rounded">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered table-hover align-middle"
+                    id="dataListagens"
+                    width="100%"
+                    cellspacing="0">
+                    <thead class="">
+                        <tr class="text-dark" style="background:#ebebeb;">
+                            <th class="text-center">Nome</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in object_list %}
+                            <tr>
+                                <td scope="row " class="text-center align-middle">  
+                                
+                                    <img src="  ">
+                                    <a href="#bannerformmodal" data-toggle="modal" data-target="myModal"></a>
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{ item.equipamento }}</button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
+                                    
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Imagem</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src=" ">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    
+                                </div>                          
+                                </td>
+                                {% if item.status == "Funcionando" %}
+                                    <td class="text-center align-middle bg-success">
+                                        <span class="" style=" color: white;  ">
+                                            {{ item.status }}
+                                        </span>
+                                    </td>
+                                {% elif item.status == "Manutenção" %}
+                                    <td class="text-center align-middle bg-gradient-warning">
+                                        {{ item.status }}
+                                    </td>
+                                {% else %}
+                                    <td class="text-center align-middle bg-danger">
+                                        
+                                    <span class="" style="background-color: green; padding: 0px 20px 0px 20px; color: white;  width: 40px;">
+                                        {{ item.status }}
+                                    </span>
+                                    </td>
+                                    {% endif %}                        
+                                
+                                <td class="text-center align-middle" style="width:150px;">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="mx-1">
+                                            <a href="{% url 'equipamentos:eq-update' item.pk %}"
+                                            class="btn btn-secondary"
+                                            style=" padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        </div>
+                                    
+                                        <div class="mx-1">                                     
+                                            <button class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#excluiAluno"
+                                                    style="padding-top: 1.2rem; padding-bottom: 1.2rem; padding-left: 1.2rem; padding-right: 1.2rem ">
+                                                <i class="fas fa-info"></i>
+                                            </button>
+                                        </div>
+                                        <div class="mx-1">                                     
+                                            <button class="btn btn-danger" data-toggle="modal" data-target="#excluiAluno"
+                                                    style="padding-top: 0.7rem; padding-bottom: 0.7rem; ">
+
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="excluiAluno" role="dialog">
+                                                <div class="modal-dialog">
+                                                
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content align-content-center">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4 class="modal-title">Deseja deletar {{ item.nome }}?</h4>
+                                                            <img src="">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <form action="{% url 'equipamentos:delete-eq' item.pk %}" method="POST">
+                                                                {% csrf_token %}
+                                                                <button class="btn btn-danger alert-danger">Delete</button>
+                                                            </form>
+                                                            <button type="button" class="btn btn-default alert-dark" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% empty %}
+                        <tr>
+                            <td col="3"> Nada foi registrado </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade"
+         id="exampleModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <input class="save btn btn-danger"
+                           type="submit"
+                           value="Sim"
+                           data-dismiss="modal"
+                           delete>
+                    {% comment %} <button type="submit" class="save btn btn-danger" data-dismiss="modal">sim</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

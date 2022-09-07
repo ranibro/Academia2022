@@ -33,7 +33,7 @@ class ClientesCad(GroupRequiredMixin,LoginRequiredMixin, CreateView):
     model = Clientes
     fields = ['nome', 'email','password']
     template_name = 'cadastros/cadastroCliente.html'
-    success_url = reverse_lazy('alunos:clientes')
+    success_url = reverse_lazy('funcionarios:clientes')
 
 class ClienteListagem(LoginRequiredMixin,ListView):
     group_required = [u"Funcionario", u"Adminstrador"]
@@ -47,4 +47,4 @@ class ClientesUpdate(GroupRequiredMixin,LoginRequiredMixin,UpdateView):
     model = Clientes
     fields = "__all__"
     template_name = 'cadastros/cadastroCliente.html'
-    success_url = reverse_lazy('alunos:clientes')
+    success_url = reverse_lazy('funcionarios:clientes')

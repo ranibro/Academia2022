@@ -1,7 +1,7 @@
 from django.db import models
 from apps.equipamentos.models import Equipamentos
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 # Create your models here.
 #fazer um status de inativo ou ativo
 
@@ -15,9 +15,8 @@ class Clientes (models.Model):
         return "{} - {} - {}".format(self.nome, self.email, self.usuario)
 
 class Exercicio (models.Model):
-    repeticao = models.PositiveIntegerField(null=True, default="0")
-    carga = models.PositiveIntegerField(null=True, default="0")
-    serie = models.PositiveIntegerField(null=True, default="0")
+    repeticao = models.PositiveIntegerField(null=True)
+    carga = models.PositiveIntegerField(null=True)
     tempo = models.PositiveIntegerField(null=True, help_text="Opcional", default="0")
     equipamento = models.ForeignKey(Equipamentos, on_delete=models.CASCADE)
     def __str__(self):
@@ -27,3 +26,4 @@ class Treino (models.Model):
     nome = models.CharField('Nome do Treino', max_length=16)
     exercicio = models.ManyToManyField(Exercicio)
     aluno = models.ManyToManyField(Clientes)
+    inicio = models.DateTimeField(default=timezone.now)
