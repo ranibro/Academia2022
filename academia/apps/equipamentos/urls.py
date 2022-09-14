@@ -14,4 +14,3 @@ urlpatterns = [
    path('eq-update/<int:pk>', EquipamentosUpdate.as_view(), name='eq-update'),
    path('delete-eq/<int:pk>',EquipamentosDelete.as_view(),name='delete-eq')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
- 

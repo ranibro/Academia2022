@@ -13,7 +13,7 @@
                     <h1 class="h3 my-3 text-dark">Cadastrar Equipamentos</h1>
                 {% endif %}
 
-                    <form method="POST" action="" >
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div id="" class="col bg-white rounded p-2">
                             {% csrf_token %}
                             {{ form | crispy }}
