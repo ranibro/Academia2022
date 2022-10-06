@@ -17,6 +17,7 @@ class Clientes (models.Model):
 class Exercicio (models.Model):
     repeticao = models.PositiveIntegerField(null=True)
     carga = models.PositiveIntegerField(null=True)
+    serie = models.PositiveIntegerField(null=True)
     tempo = models.PositiveIntegerField(null=True, help_text="Opcional", default="0")
     equipamento = models.ForeignKey(Equipamentos, on_delete=models.CASCADE)
     def __str__(self):
