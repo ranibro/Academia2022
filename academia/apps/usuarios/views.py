@@ -7,3 +7,4 @@ class AdminLogin(LoginView):
     
 class AdminLogout(LogoutView):
     template_name = 'login/loginAdm.html'
+ 
