@@ -1,0 +1,40 @@
+{% extends 'sign/register.html' %}
+
+
+<title>{% block titulo %} Cadastros {% endblock %} </title>
+
+    {% load crispy_forms_tags %}
+    
+        {% block conteudo %}
+
+                {% if object.pk %}
+                    <h1 class="h3 my-3 text-dark">Editando Cadastro</h1>
+                {% else %}
+                    <h1 class="h3 my-3 text-dark">Cadastrar Usuário</h1>
+                {% endif %}
+
+                    <form method="POST" action="" >
+                        <div id="" class="col bg-white rounded p-2">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <div class="text-right col-md-12 ">        
+                              
+                              
+                                <button type="submit" class="save btn text-white " style="background:#198754;">
+                                    <! MESMA COISA AQUI, NÃO VOU MECHER COM ISSO AGORA.>
+                                    <i class="fas fa-save"></i>
+                                    Cadastrar
+                                </button>
+                                <a class="btn btn-secondary"  href="{% url 'usuarios:login' %}"  style="background:#6c757d;">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Voltar
+                                </a>
+                              
+        
+                            </div>
+                        </div> 
+                    </form>
+               
+
+        {% endblock %}
+    

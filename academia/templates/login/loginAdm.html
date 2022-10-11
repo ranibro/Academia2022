@@ -12,15 +12,20 @@
                                                                            background-size: 100% 100%;" ></div>
 <form action= "" method="POST">
     {% csrf_token %}
-    
+    {% load crispy_forms_tags %}
 <!-- form variable -->    
- {{ form.as_p }} 
+{{ form | crispy }} 
 
-  <input type="submit" name="sumbit">
-</form>
-    </body>
+<a class="btn btn-warning"  href="{% url 'usuarios:sign-in' %}"  >
+  <i class="fas fa-unlock"></i>
+  Criar conta
+</a>  
 
-</html>
-
+    <button type="submit" class="save btn text-white " style="margin-left: 127px; background:#198754;">
+      <! MESMA COISA AQUI, NÃO VOU MECHER COM ISSO AGORA.>
+      <i class="fas fa-check"></i>
+      Entrar
+  </button>
+ 
 {% endblock %}
 
