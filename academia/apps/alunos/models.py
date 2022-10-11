@@ -28,3 +28,5 @@ class Treino (models.Model):
     exercicio = models.ManyToManyField(Exercicio)
     aluno = models.ManyToManyField(Clientes)
     inicio = models.DateTimeField(default=timezone.now)
+    def __str__(self):
+        return "{}".format(self.nome)
