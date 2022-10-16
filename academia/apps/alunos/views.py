@@ -5,6 +5,7 @@ from .models import Exercicio, Treino
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from .forms import TreinoForm
+
 def treinoCad(request):
    form = TreinoForm
    context = {'form':form}

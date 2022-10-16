@@ -27,9 +27,7 @@ def paginalogin(request):
         else:
             return render(request, '../templates/login/login.html')
 
-class ClientesCad(GroupRequiredMixin,LoginRequiredMixin, CreateView):
-    group_required = u"Funcionario"
-    login_url = reverse_lazy('login')
+class ClientesCad( CreateView):
     model = Clientes
     fields = ['nome', 'email','password']
     template_name = 'cadastros/cadastroCliente.html'
@@ -41,9 +39,9 @@ class ClienteListagem(LoginRequiredMixin,ListView):
     model = Clientes
     template_name = 'listas/listaClientes.html'
 
-class ClientesUpdate(GroupRequiredMixin,LoginRequiredMixin,UpdateView):
-    group_required = u"Funcionario"
-    login_url = reverse_lazy('login')
+class ClientesUpdate(UpdateView):
+    # group_required = u"Funcionario"
+    # login_url = reverse_lazy('login')
     model = Clientes
     fields = "__all__"
     template_name = 'cadastros/cadastroCliente.html'
