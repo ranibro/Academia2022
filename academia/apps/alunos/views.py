@@ -6,10 +6,10 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from .forms import TreinoForm
 
-def treinoCad(request):
+def treinocad(request):
    form = TreinoForm
    context = {'form':form}
-   return render(request, 'cadastroTreino.html', context)
+   return render(request, 'cadastros/cadastroTreino.html', context)
 
 class ExercicioCad(CreateView):
     model = Exercicio
