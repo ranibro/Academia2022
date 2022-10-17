@@ -6,8 +6,10 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from braces.views import GroupRequiredMixin
+from apps.usuarios.forms import FuncionarioForm, UsuarioForm
 from apps.alunos.models import Clientes
-
+from apps.usuarios.models import User
+""" 
 
 def paginalogin(request):
     if request.user.is_authenticated:
@@ -26,23 +28,27 @@ def paginalogin(request):
                 return render(request, '../templates/login/login.html')
         else:
             return render(request, '../templates/login/login.html')
-
-class ClientesCad( CreateView):
+"""
+"""<class ClientesCad( LoginRequiredMixin,CreateView):
+    login_url = reverse_lazy('login')
     model = Clientes
     fields = ['nome', 'email','password']
     template_name = 'cadastros/cadastroCliente.html'
     success_url = reverse_lazy('funcionarios:clientes')
-
+"""
 class ClienteListagem(LoginRequiredMixin,ListView):
-    group_required = [u"Funcionario", u"Adminstrador"]
+    #group_required = [u"Funcionario", u"Adminstrador"]
     login_url = reverse_lazy('login')
-    model = Clientes
+    model = User
     template_name = 'listas/listaClientes.html'
 
-class ClientesUpdate(UpdateView):
-    # group_required = u"Funcionario"
-    # login_url = reverse_lazy('login')
+class ClientesUpdate(LoginRequiredMixin,UpdateView):
+    login_url = reverse_lazy('login')
     model = Clientes
     fields = "__all__"
     template_name = 'cadastros/cadastroCliente.html'
     success_url = reverse_lazy('funcionarios:clientes')
+    
+class FuncionarioLista(ListView):
+    model = User
+    template_name = "listas/listaFuncionarios.html"

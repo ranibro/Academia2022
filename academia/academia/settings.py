@@ -138,6 +138,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #admin 
+AUTH_USER_MODEL = "usuarios.User"
 
 LOGIN_REDIRECT_URL = '../clientes' # URL redirecting after a successful authentication
 
