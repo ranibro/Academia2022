@@ -1,53 +1,55 @@
-from lib2to3.pgen2.token import GREATER
-from tokenize import group
-from unittest import mock
-from django.shortcuts import get_object_or_404, render
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
-from .forms import UsuarioForm, FuncionarioForm
-from django.contrib.auth.models import  Group
-from django.contrib.auth.mixins import LoginRequiredMixin
-from braces.views import GroupRequiredMixin
-from .models import User
-
-# Create your views here.
-class AdminLogin(LoginView):
-    template_name = 'login/loginAdm.html'
+from django.views.generic import View
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
+from django.contrib.auth import logout
 
 
-class UsuarioCreate ( CreateView):
-    #group_required = [u"Funcionario"]
-    #login_url = reverse_lazy('login')
-    template_name= "cadastros/cadastroCliente.html"
-    model = User
-    success_url = reverse_lazy("listas/listaClientes.html")
-    fields = ["username",'first_name', 'last_name','email','password']
-    forms = FuncionarioForm()
-    def form_valid(self, form):
-        
-        grupo = get_object_or_404(Group, name="Alunos")
-        
-        self.object.groups.add(grupo)
-        self.object.save()
-        
-        return super().form_valid(form)
+from .forms import SignInForm, SignUpForm
 
-class FuncionarioCreate ( LoginRequiredMixin,CreateView):
-    #group_required = [u"Administrador"]
-    login_url = reverse_lazy('login')
-    template_name = "cadastros/cadastroFuncionario.html "
-    forms = FuncionarioForm()
-    success_url = reverse_lazy("funcionarios:funcionarios")
-    
-    def form_valid(self, form):
-        
-        grupo = Group.objects.get(name='Funcionarios') 
-        grupo.user_set.add( self.object)
-       
-  
-        
-        return super().form_valid(form)
+def signout(request):
+    logout(request)
+    return redirect("accounts:signin")
 
 
- 
+class SignUpView(View):
+    """ User registration view """
+
+    template_name = "cadastroCliente.html"
+    form_class = SignUpForm
+
+    def get(self, request, *args, **kwargs):
+        forms = self.form_class()
+        context = {"form": forms}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        forms = self.form_class(request.POST)
+        if forms.is_valid():
+            forms.save()
+            return redirect("usuarios:login")
+        context = {"form": forms}
+        return render(request, self.template_name, context)
+
+class SignInView(View):
+    """ User registration view """
+
+    template_name = "login/loginAdm.html"
+    form_class = SignInForm
+
+    def get(self, request, *args, **kwargs):
+        forms = self.form_class()
+        context = {"form": forms}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        forms = self.form_class(request.POST)
+        if forms.is_valid():
+            email = forms.cleaned_data["email"]
+            password = forms.cleaned_data["password"]
+            user = authenticate(email=email, password=password)
+            if user:
+                login(request, user)
+                return redirect("funcionarios:clientes")
+        context = {"form": forms}
+        return render(request, self.template_name, context)
